@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             if(v.getId()==R.id.btnRegister){
                 Intent intent = new Intent(MainActivity.this, register.class);
                 startActivity(intent);
+                //***********Togliere per far funzionare il torna indietro******************
                 finish();
             }
             if(v.getId()== R.id.btnSignIn){
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             if(v.getId()==R.id.btnReimposta){
                 Intent intent=new Intent(MainActivity.this, Reimposta.class);
                 startActivity(intent);
+                 //***********Togliere per far funzionare il torna indietro******************
                 finish();
             }
         }
