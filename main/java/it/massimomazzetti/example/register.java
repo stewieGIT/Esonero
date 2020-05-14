@@ -54,11 +54,10 @@ public class register extends AppCompatActivity {
                 try {
 
                     createAccount(email, password);
-                    TimeUnit.SECONDS.sleep(1);
-                    sendEmailVerification();
+              
                 }
                 catch (Exception e){
-
+                    e.printStackTrace();
                 }
 
 
@@ -82,29 +81,7 @@ public class register extends AppCompatActivity {
 
                     }
                 });
-    }
-
-    private void sendEmailVerification() {
-
-        final FirebaseUser user = mAuth.getCurrentUser();
-        System.out.println(user.getEmail());
-        user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Verification email sent to " + user.getEmail(),
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Log.e(TAG, "sendEmailVerification", task.getException());
-                            Toast.makeText(getApplicationContext(),
-                                    "Failed to send verification email.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
+        }
 
     }
 
